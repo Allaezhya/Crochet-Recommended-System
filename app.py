@@ -28,3 +28,5 @@ if st.button("Recommend"):
     recommendation = recommend(selected_crochet)
     for i in recommendation:
         st.write(i)
+
+st.image("C:\Vanness\SKRIPSI\Crochet-App\Alpukat.png")

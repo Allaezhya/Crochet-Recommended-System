@@ -29,4 +29,4 @@ if st.button("Recommend"):
     for i in recommendation:
         st.write(i)
 
-st.image("C:\Vanness\SKRIPSI\Crochet-App\Alpukat.png")
+st.image("Alpukat.png")

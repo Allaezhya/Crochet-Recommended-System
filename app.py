@@ -11,13 +11,12 @@ def recommend(kerajinan):
 
     recommended_crochet = []
     base_url = 'https://raw.githubusercontent.com/Allaezhya/Crochet-Recommended-System/utama/images/'
-    asd = 'jambu.png'
     for i in crochet_list:
         kerajinan_name = crochet.iloc[i[0]].kerajinan
         link = crochet.iloc[i[0]].link
         image_jalur = crochet.iloc[i[0]].gambar
 
-        full_image_path = base_url + asd
+        full_image_path = base_url + image_jalur
 
         recommended_crochet.append([kerajinan_name, link, full_image_path])
     return recommended_crochet
@@ -44,7 +43,7 @@ if st.button("Recommend"):
 
         st.write(f"URL gambar: {gambar}")  # Debugging untuk memeriksa URL gambar
         try:
-            response = requests.get(full_image_path)
+            response = requests.get(gambar, steram=True)
             if response.status_code == 200:
                 image = Image.open(response.raw)
                 st.image(image, caption=kerajinan_name, use_column_width=True)

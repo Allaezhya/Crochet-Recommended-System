@@ -14,7 +14,7 @@ def recommend(kerajinan):
         link = crochet.iloc[i[0]].link
         image_jalur = crochet.iloc[i[0]].gambar
 
-        full_image_path = os.path.join('images', image_jalur)
+        full_image_path = os.path.join('https://raw.githubusercontent.com/Allaezhya/Crochet-Recommended-System/repository/utama/images', image_jalur)
 
         recommended_crochet.append([kerajinan_name, link, full_image_path])
     return recommended_crochet

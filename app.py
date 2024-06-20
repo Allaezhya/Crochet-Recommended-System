@@ -1,6 +1,8 @@
 import streamlit as st
 import pickle
 import pandas as pd
+import os
+from PIL import Image
 
 def recommend(kerajinan):
     index = crochet[crochet['kerajinan'] == kerajinan].index[0]
@@ -8,12 +10,16 @@ def recommend(kerajinan):
 
     recommended_crochet = []
     for i in crochet_list:
-        recommended_crochet.append(crochet.iloc[i[0]].kerajinan)
-        recommended_crochet.append(crochet.iloc[i[0]].link)
+        kerajinan_name = crochet.iloc[i[0]].kerajinan
+        link = crochet.iloc[i[0]].link
+        image_jalur = crochet.iloc[i[0]].gambar
+
+        full_image_path = os.path.join('C:\Vanness\SKRIPSI\PERCOBAAN\images', image_jalur)
+
+        recommended_crochet.append([kerajinan_name, link, full_image_path])
     return recommended_crochet
 
-
-crochet_dict = pickle.load(open('crcohet_dict.pkl', 'rb'))
+crochet_dict = pickle.load(open('crochet_dict.pkl', 'rb'))
 crochet = pd.DataFrame(crochet_dict)
 
 similarity = pickle.load(open('similarity.pkl', 'rb'))
@@ -25,8 +31,17 @@ selected_crochet = st.selectbox(
 crochet['kerajinan'].values)
 
 if st.button("Recommend"):
-    recommendation = recommend(selected_crochet)
-    for i in recommendation:
-        st.write(i)
+    recommendations = recommend(selected_crochet)
 
-st.image("Alpukat.png")
+    st.write(f"Rekomendasi untuk {selected_crochet}:")
+    for rec in recommendations:
+        kerajinan_name, link, gambar = rec
+        st.subheader(kerajinan_name)
+        st.write(f"[Link ke tutorial] ({link})")
+
+        st.write(f"Path gambar: {gambar}")  # Debugging untuk memeriksa path gambar
+        if os.path.exists(gambar):
+            image = Image.open(gambar)
+            st.image(image, caption=kerajinan_name, use_column_width=True)
+        else:
+            st.write("Gambar tidak ditemukan!")

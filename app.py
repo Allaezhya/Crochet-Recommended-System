@@ -43,7 +43,7 @@ if st.button("Recommend"):
 
         st.write(f"URL gambar: {gambar}")  # Debugging untuk memeriksa URL gambar
         try:
-            response = requests.get(gambar, steram=True)
+            response = requests.get(gambar, stream=True)
             if response.status_code == 200:
                 image = Image.open(response.raw)
                 st.image(image, caption=kerajinan_name, use_column_width=True)

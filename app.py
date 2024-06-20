@@ -11,13 +11,13 @@ def recommend(kerajinan):
 
     recommended_crochet = []
     base_url = 'https://raw.githubusercontent.com/Allaezhya/Crochet-Recommended-System/utama/images/'
-    
+    asd = jambu.png
     for i in crochet_list:
         kerajinan_name = crochet.iloc[i[0]].kerajinan
         link = crochet.iloc[i[0]].link
         image_jalur = crochet.iloc[i[0]].gambar
 
-        full_image_path = base_url + image_jalur
+        full_image_path = base_url + asd
 
         recommended_crochet.append([kerajinan_name, link, full_image_path])
     return recommended_crochet

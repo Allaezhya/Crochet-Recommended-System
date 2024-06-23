@@ -40,8 +40,6 @@ if st.button("Recommend"):
         kerajinan_name, link, gambar = rec
         st.subheader(kerajinan_name)
         st.write(f"[Link ke tutorial] ({link})")
-
-        st.write(f"URL gambar: {gambar}")  # Debugging untuk memeriksa URL gambar
         try:
             response = requests.get(gambar, stream=True)
             if response.status_code == 200:

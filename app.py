@@ -10,7 +10,7 @@ def recommend(kerajinan):
     crochet_list = sorted(list(enumerate(similarity[index])), reverse=True, key=lambda x: x[1])[1:6]
 
     recommended_crochet = []
-    base_url = 'https://drive.google.com/drive/folders/1lfrU2AUAnycRQofAAO-OtX0D9-alw_Yb?usp=drive_link'
+    base_url = 'https://github.com/Allaezhya/Crochet-Recommended-System/'
     for i in crochet_list:
         kerajinan_name = crochet.iloc[i[0]].kerajinan
         link = crochet.iloc[i[0]].link

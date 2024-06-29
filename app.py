@@ -42,14 +42,4 @@ if st.button("Rekomendasikan"):
         st.write(f"[Link ke tutorial] ({link})")
 
         st.write(f"URL gambar: {gambar}")  # Debugging untuk memeriksa URL gambar
-        try:
-            response = requests.get(gambar, stream=True)
-            if response.status_code == 200:
-                image_bytes = io.BytesIO(response.content)
-                image = Image.open(image_bytes)
-                st.image(image, caption=kerajinan_name, use_column_width=True)
-            else:
-                st.write("Gambar tidak ditemukan!")
-        except Exception as e:
-            st.write(f"Error: {e}")
-            st.write("Gambar tidak dapat dimuat.")
+        st.image(full_image_path)

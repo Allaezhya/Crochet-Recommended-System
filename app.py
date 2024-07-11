@@ -24,7 +24,7 @@ def recommend(kerajinan):
 page_bg_img = """
 <style>
 [data-testid="stAppViewContainer"] {
-background-color: #DEFFE7;
+background-color: #fff3f2;
 .font {
     color: #000 !important;
     font-size: 36px !important;
@@ -52,7 +52,6 @@ if st.button(":green[Rekomendasikan]"):
 
     for rec in recommendations:
         kerajinan_name, link, gambar = rec
-        st.subheader(kerajinan_name)
         st.write(f'<p class="font">{kerajinan_name}</p>', unsafe_allow_html=True)
         st.write(f":gray[[Link ke tutorial] ({link})]")
 

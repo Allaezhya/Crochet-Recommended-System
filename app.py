@@ -24,7 +24,7 @@ def recommend(kerajinan):
 page_bg_img = """
 <style>
 [data-testid="stAppViewContainer"] {
-background-color: #F8F7F3;
+background-color: #deffe7;
 color: #FAFBFC;
 
 </style>

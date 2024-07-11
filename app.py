@@ -26,7 +26,7 @@ page_bg_img = """
 [data-testid="stAppViewContainer"] {
 background-color: #DEFFE7;
 .font {
-    color: #FFF !important;
+    color: #000 !important;
     font-size: 36px !important;
 }
 
@@ -53,7 +53,7 @@ if st.button(":green[Rekomendasikan]"):
     for rec in recommendations:
         kerajinan_name, link, gambar = rec
         st.subheader(kerajinan_name)
-        st.write(f'<p class="font">{kerajinan_name}>/p>', unsafe_allow_html=True)
+        st.write(f'<p class="font">{kerajinan_name}</p>', unsafe_allow_html=True)
         st.write(f":gray[[Link ke tutorial] ({link})]")
 
         st.write(f":gray[URL gambar: {gambar}]")  # Debugging untuk memeriksa URL gambar

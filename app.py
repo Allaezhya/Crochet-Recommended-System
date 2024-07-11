@@ -24,7 +24,7 @@ def recommend(kerajinan):
 page_bg_img = """
 <style>
 [data-testid="stAppViewContainer"] {
-background-color: #F5FFFA;
+background-color: #F8F7F3;
 color: #FAFBFC;
 
 </style>
@@ -43,9 +43,9 @@ selected_crochet = st.selectbox(
 ':gray[Mencari projek selanjutnya? Pilih salah satu]',
 crochet['kerajinan'].values)
 
-if st.button("Rekomendasikan"):
+if st.button(":green[Rekomendasikan]"):
     recommendations = recommend(selected_crochet)
-    st.write(f"Rekomendasi untuk {selected_crochet}:")
+    st.write(f":gray[Rekomendasi untuk {selected_crochet}:]")
 
     for rec in recommendations:
         kerajinan_name, link, gambar = rec

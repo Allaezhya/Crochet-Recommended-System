@@ -21,15 +21,26 @@ def recommend(kerajinan):
         recommended_crochet.append([kerajinan_name, link, full_image_path])
     return recommended_crochet
 
+page_bg_img = """
+<style>
+[data-testid="stAppViewContainer"] {
+background-color: #F5FFFA;
+color: #FAFBFC;
+
+</style>
+"""
+
+st.markdown(page_bg_img, unsafe_allow_html=True)
+
 crochet_dict = pickle.load(open('crochet_dict.pkl', 'rb'))
 crochet = pd.DataFrame(crochet_dict)
 
 similarity = pickle.load(open('similarity.pkl', 'rb'))
 
-st.title("Sistem Rekomendasi Kerajinan Rajut")
+st.title(":gray[Sistem Rekomendasi Kerajinan Rajut]")
 
 selected_crochet = st.selectbox(
-'Mencri projek selanjutnya? Pilih salah satu',
+':gray[Mencari projek selanjutnya? Pilih salah satu]',
 crochet['kerajinan'].values)
 
 if st.button("Rekomendasikan"):

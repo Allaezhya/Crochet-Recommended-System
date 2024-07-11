@@ -49,7 +49,7 @@ if st.button(":green[Rekomendasikan]"):
 
     for rec in recommendations:
         kerajinan_name, link, gambar = rec
-        st.subheader(:gray[kerajinan_name])
+        st.subheader(kerajinan_name)
         st.write(f":gray[[Link ke tutorial] ({link})]")
 
         st.write(f":gray[URL gambar: {gambar}]")  # Debugging untuk memeriksa URL gambar

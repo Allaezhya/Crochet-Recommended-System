@@ -50,9 +50,9 @@ if st.button(":green[Rekomendasikan]"):
     for rec in recommendations:
         kerajinan_name, link, gambar = rec
         st.subheader(kerajinan_name)
-        st.write(f"[Link ke tutorial] ({link})")
+        st.write(f":gray[[Link ke tutorial] ({link})]")
 
-        st.write(f"URL gambar: {gambar}")  # Debugging untuk memeriksa URL gambar
+        st.write(f":gray[URL gambar: {gambar}]")  # Debugging untuk memeriksa URL gambar
         try:
             response = requests.get(gambar, stream=True)
             if response.status_code == 200:
@@ -60,7 +60,7 @@ if st.button(":green[Rekomendasikan]"):
                 image = Image.open(image_bytes)
                 st.image(image, caption=kerajinan_name, use_column_width=True)
             else:
-                st.write("Gambar tidak ditemukan!")
+                st.write(":gray[Gambar tidak ditemukan!]")
         except Exception as e:
-            st.write(f"Error: {e}")
-            st.write("Gambar tidak dapat dimuat.")
+            st.write(f":gray[Error: {e}]")
+            st.write(":gray[Gambar tidak dapat dimuat.]")

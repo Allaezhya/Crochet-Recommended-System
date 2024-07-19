@@ -41,7 +41,10 @@ if st.button("Rekomendasikan"):
         st.write(f"[Link ke tutorial] ({link})")
 
         st.write(f"URL gambar: {gambar}")  # Debugging untuk memeriksa URL gambar
-        st.markdown(f"[![Click me](./static/apel.png)]({link})")
+        st.markdown(
+            '<img src="https://github.com/Allaezhya/Crochet-Recommended-System/tree/utama/.static/apel.png">',
+            unsafe_allow_html=True,
+        )
         try:
             response = requests.get(gambar, stream=True)
             if response.status_code == 200:

@@ -30,7 +30,7 @@ similarity = pickle.load(open('similarity.pkl', 'rb'))
 
 st.title("Sistem Rekomendasi Kerajinan Rajut")
 
-selected_crochet = st.selectbox(Mencari projek selanjutnya? Pilih salah satu',
+selected_crochet = st.selectbox("Mencari projek selanjutnya? Pilih salah satu",
 crochet['kerajinan'].values)
 
 if st.button("Rekomendasikan"):

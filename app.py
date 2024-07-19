@@ -21,18 +21,6 @@ def recommend(kerajinan):
         recommended_crochet.append([kerajinan_name, link, full_image_path])
     return recommended_crochet
 
-page_bg_img = """
-<style>
-[data-testid="stAppViewContainer"] {
-background-color: #fff3f2;
-.font {
-    color: #000 !important;
-    font-size: 36px !important;
-}
-
-</style>
-"""
-
 st.markdown(page_bg_img, unsafe_allow_html=True)
 
 crochet_dict = pickle.load(open('crochet_dict.pkl', 'rb'))

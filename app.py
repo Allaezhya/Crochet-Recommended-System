@@ -21,8 +21,6 @@ def recommend(kerajinan):
         recommended_crochet.append([kerajinan_name, link, full_image_path])
     return recommended_crochet
 
-st.markdown(page_bg_img, unsafe_allow_html=True)
-
 crochet_dict = pickle.load(open('crochet_dict.pkl', 'rb'))
 crochet = pd.DataFrame(crochet_dict)
 

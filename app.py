@@ -32,6 +32,9 @@ st.title("Sistem Rekomendasi Kerajinan Rajut")
 selected_crochet = st.selectbox("Mencari projek selanjutnya? Pilih salah satu",
 crochet['kerajinan'].values)
 
+with st.echo():
+    st.markdown("[![Click me](./app/static/alpukat.png)](https://streamlit.io)")
+
 if st.button("Rekomendasikan"):
     recommendations = recommend(selected_crochet)
     st.write(f"Rekomendasi untuk {selected_crochet}")
@@ -42,7 +45,6 @@ if st.button("Rekomendasikan"):
         st.write(f"[Link ke tutorial] ({link})")
 
         st.write(f"URL gambar: {gambar}")  # Debugging untuk memeriksa URL gambar
-        st.markdown("[![Click me](./app/static/alpukat.png)](https://streamlit.io)")
         try:
             response = requests.get(gambar, stream=True)
             if response.status_code == 200:

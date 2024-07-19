@@ -42,7 +42,7 @@ if st.button("Rekomendasikan"):
 
         st.write(f"URL gambar: {gambar}")  # Debugging untuk memeriksa URL gambar
         st.markdown(
-            '<img src="https://github.com/Allaezhya/Crochet-Recommended-System/tree/utama/.static/apel.png">',
+            '<img src="./static/apel.png">',
             unsafe_allow_html=True,
         )
         try:

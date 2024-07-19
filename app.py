@@ -41,10 +41,7 @@ if st.button("Rekomendasikan"):
         st.write(f"[Link ke tutorial] ({link})")
 
         st.write(f"URL gambar: {gambar}")  # Debugging untuk memeriksa URL gambar
-        st.markdown(
-            '<img src="./static/apel.png">',
-            unsafe_allow_html=True,
-        )
+        st.markdown(f"[![Click me](./app/static/apel.png)](https://{link})")
         try:
             response = requests.get(gambar, stream=True)
             if response.status_code == 200:

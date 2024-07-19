@@ -28,22 +28,21 @@ crochet = pd.DataFrame(crochet_dict)
 
 similarity = pickle.load(open('similarity.pkl', 'rb'))
 
-st.title(":gray[Sistem Rekomendasi Kerajinan Rajut]")
+st.title("Sistem Rekomendasi Kerajinan Rajut")
 
-selected_crochet = st.selectbox(
-':gray[Mencari projek selanjutnya? Pilih salah satu]',
+selected_crochet = st.selectbox(Mencari projek selanjutnya? Pilih salah satu',
 crochet['kerajinan'].values)
 
-if st.button(":green[Rekomendasikan]"):
+if st.button("Rekomendasikan"):
     recommendations = recommend(selected_crochet)
-    st.write(f":gray[Rekomendasi untuk {selected_crochet}:]")
+    st.write(f"Rekomendasi untuk {selected_crochet}")
 
     for rec in recommendations:
         kerajinan_name, link, gambar = rec
         st.write(f'<p class="font">{kerajinan_name}</p>', unsafe_allow_html=True)
-        st.write(f":gray[[Link ke tutorial] ({link})]")
+        st.write(f"[Link ke tutorial] ({link})")
 
-        st.write(f":gray[URL gambar: {gambar}]")  # Debugging untuk memeriksa URL gambar
+        st.write(f"URL gambar: {gambar}")  # Debugging untuk memeriksa URL gambar
         try:
             response = requests.get(gambar, stream=True)
             if response.status_code == 200:
@@ -51,7 +50,7 @@ if st.button(":green[Rekomendasikan]"):
                 image = Image.open(image_bytes)
                 st.image(image, caption=kerajinan_name, use_column_width=True)
             else:
-                st.write(":gray[Gambar tidak ditemukan!]")
+                st.write("Gambar tidak ditemukan!")
         except Exception as e:
             st.write(f":gray[Error: {e}]")
-            st.write(":gray[Gambar tidak dapat dimuat.]")
+            st.write("Gambar tidak dapat dimuat.")

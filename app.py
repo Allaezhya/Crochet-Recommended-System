@@ -3,6 +3,7 @@ import pickle
 import pandas as pd
 from PIL import Image
 import requests
+import numpy as np
 import io
 
 def recommend(kerajinan):

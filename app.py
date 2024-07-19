@@ -11,7 +11,7 @@ def recommend(kerajinan):
     crochet_list = sorted(list(enumerate(similarity[index])), reverse=True, key=lambda x: x[1])[1:6]
 
     recommended_crochet = []
-    base_url = './app.static/'
+    base_url = './app/static/'
     for i in crochet_list:
         kerajinan_name = crochet.iloc[i[0]].kerajinan
         link = crochet.iloc[i[0]].link
@@ -33,9 +33,6 @@ selected_crochet = st.selectbox("Mencari projek selanjutnya? Pilih salah satu",
 crochet['kerajinan'].values)
 
 with st.echo():
-    st.markdown("[![Click me](./app/static/alpukat.png)](https://streamlit.io)")
-
-with st.echo():
     st.markdown(
         '<img src="./app/static/cat.jpg" height="333" style="border: 5px solid orange">',
         unsafe_allow_html=True,
@@ -51,6 +48,9 @@ if st.button("Rekomendasikan"):
         st.write(f"[Link ke tutorial] ({link})")
 
         st.write(f"URL gambar: {gambar}")  # Debugging untuk memeriksa URL gambar
+        with st.echo():
+            st.markdown(f"[![Click me]({gambar})](https://streamlit.io)")
+
         try:
             response = requests.get(gambar, stream=True)
             if response.status_code == 200:

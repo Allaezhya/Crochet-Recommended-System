@@ -33,7 +33,7 @@ selected_crochet = st.selectbox("Mencari projek selanjutnya? Pilih salah satu",
 crochet['kerajinan'].values)
 
 with st.echo():
-    st.markdown("[![Click me](./app/static/alpukat.png)](https://streamlit.io)")
+    st.markdown("[![Click me](./static/alpukat.png)](https://streamlit.io)")
 
 if st.button("Rekomendasikan"):
     recommendations = recommend(selected_crochet)
